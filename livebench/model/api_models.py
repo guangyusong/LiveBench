@@ -58,6 +58,37 @@ ANTHROPIC_MODELS = [
         display_name="claude-3-5-haiku-20241022",
         aliases=['claude-3-5-haiku'],
     ),
+    AnthropicModel(
+        api_name="claude-3-7-sonnet-20250219",
+        display_name="claude-3-7-sonnet-20250219-thinking-25k",
+        aliases=['claude-3-7-sonnet-thinking-25k'],
+        api_kwargs={
+            'thinking': {
+                'type': 'enabled',
+                'budget_tokens': 25000
+            },
+            'max_tokens': 32000,
+            'temperature': None
+        }
+    ),
+    AnthropicModel(
+        api_name="claude-3-7-sonnet-20250219",
+        display_name="claude-3-7-sonnet-20250219-thinking-64k",
+        aliases=['claude-3-7-sonnet-thinking-64k'],
+        api_kwargs={
+            'thinking': {
+                'type': 'enabled',
+                'budget_tokens': 63000
+            },
+            'max_tokens': 64000,
+            'temperature': None
+        }
+    ),
+    AnthropicModel(
+        api_name="claude-3-7-sonnet-20250219",
+        display_name="claude-3-7-sonnet-20250219-base",
+        aliases=['claude-3-7-sonnet-base'],
+    ),
 ]
 
 # OpenAI Models
@@ -102,8 +133,18 @@ OPENAI_MODELS = [
         api_name="gpt-4o-2024-08-06", display_name="gpt-4o-2024-08-06", aliases=[]
     ),
     OpenAIModel(
+        api_name='gpt-4o-2024-11-20',
+        display_name='gpt-4o-2024-11-20',
+        aliases=['gpt-4o']
+    ),
+    OpenAIModel(
         api_name="chatgpt-4o-latest", display_name="chatgpt-4o-latest-2025-01-29", aliases=[]
     ),
+    OpenAIModel(
+        api_name='gpt-4.5-preview-2025-02-27',
+        display_name='gpt-4.5-preview-2025-02-27',
+        aliases=['gpt-4.5-preview']
+    )
 ]
 
 INFERENCE_OPENAI_MODELS = [
@@ -132,6 +173,13 @@ INFERENCE_OPENAI_MODELS = [
         aliases=['o1-low'],
         inference_api=True,
         api_kwargs={'reasoning_effort': 'low'}
+    ),
+    OpenAIModel(
+        api_name="o1-2024-12-17",
+        display_name="o1-2024-12-17-medium",
+        aliases=['o1-medium'],
+        inference_api=True,
+        api_kwargs={'reasoning_effort': 'medium'}
     ),
     OpenAIModel(
         api_name='o3-mini-2025-01-31',
@@ -281,14 +329,19 @@ GOOGLE_GENERATIVEAI_MODELS = [
         aliases=['gemini-2.0-pro-exp'],
     ),
     GeminiModel(
-        api_name='gemini-2.0-flash',
-        display_name='gemini-2.0-flash',
-        aliases=[]
+        api_name='gemini-2.0-flash-001',
+        display_name='gemini-2.0-flash-001',
+        aliases=['gemini-2.0-flash'],
     ),
     GeminiModel(
         api_name='gemini-2.0-flash-lite-preview-02-05',
         display_name='gemini-2.0-flash-lite-preview-02-05',
         aliases=[]
+    ),
+    GeminiModel(
+        api_name='gemini-2.0-flash-lite-001',
+        display_name='gemini-2.0-flash-lite-001',
+        aliases=['gemini-2.0-flash-lite'],
     )
 ]
 
